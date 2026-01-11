@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html><head><title>Simple TCP server – Medium</title><meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!-- base href="https://medium.com/media/04208a0141b6e134fb6533e06ebd7d3b" --><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="04208a0141b6e134fb6533e06ebd7d3b_data/2c535e83a3a7b8e5b7aa490009a87fbb.js" charset="utf-8"></script><link rel="stylesheet" href="04208a0141b6e134fb6533e06ebd7d3b_data/gist-embed-68783a026c0c.css"><div id="gist88312791" class="gist">
+    <div class="gist-file" translate="no" data-color-mode="light" data-light-theme="light">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container">
+  <div id="file-tcpserver-c" class="file my-2">
+    
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-c  " style="overflow: auto" tabindex="0" role="region" aria-label="TCPServer.c content, created by SkrewEverything on 02:21AM on March 16, 2018.">
+
+        
+<div class="js-check-hidden-unicode js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+</svg>
+    <span>
+      This file contains hidden or bidirectional Unicode text that may 
+be interpreted or compiled differently than what appears below. To 
+review, open the file in an editor that reveals hidden Unicode 
+characters.
+      <a class="Link--inTextBlock" href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">        <a href="https://medium.com/media/%7B%7B%20revealButtonHref%20%7D%7D" data-view-component="true" class="btn-sm btn">    Show hidden characters
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+</svg>
+</span></template>
+
+  <table data-hpc="" class="highlight tab-size js-file-line-container" data-tab-size="4" data-paste-markdown-skip="" data-tagsearch-path="TCPServer.c">
+        <tbody><tr>
+          <td id="file-tcpserver-c-L1" class="blob-num js-line-number js-blob-rnum" data-line-number="1"></td>
+          <td id="file-tcpserver-c-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// Server side C program to demonstrate Socket programming</span></td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L2" class="blob-num js-line-number js-blob-rnum" data-line-number="2"></td>
+          <td id="file-tcpserver-c-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">#include</span> <span class="pl-s">&lt;stdio.h&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L3" class="blob-num js-line-number js-blob-rnum" data-line-number="3"></td>
+          <td id="file-tcpserver-c-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">#include</span> <span class="pl-s">&lt;sys/socket.h&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L4" class="blob-num js-line-number js-blob-rnum" data-line-number="4"></td>
+          <td id="file-tcpserver-c-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">#include</span> <span class="pl-s">&lt;unistd.h&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L5" class="blob-num js-line-number js-blob-rnum" data-line-number="5"></td>
+          <td id="file-tcpserver-c-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">#include</span> <span class="pl-s">&lt;stdlib.h&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L6" class="blob-num js-line-number js-blob-rnum" data-line-number="6"></td>
+          <td id="file-tcpserver-c-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">#include</span> <span class="pl-s">&lt;netinet/in.h&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L7" class="blob-num js-line-number js-blob-rnum" data-line-number="7"></td>
+          <td id="file-tcpserver-c-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">#include</span> <span class="pl-s">&lt;string.h&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L8" class="blob-num js-line-number js-blob-rnum" data-line-number="8"></td>
+          <td id="file-tcpserver-c-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L9" class="blob-num js-line-number js-blob-rnum" data-line-number="9"></td>
+          <td id="file-tcpserver-c-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-k">#define</span> <span class="pl-c1">PORT</span> 8080</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L10" class="blob-num js-line-number js-blob-rnum" data-line-number="10"></td>
+          <td id="file-tcpserver-c-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-smi">int</span> <span class="pl-en">main</span>(<span class="pl-smi">int</span> <span class="pl-s1">argc</span>, <span class="pl-smi">char</span> <span class="pl-k">const</span> <span class="pl-c1">*</span><span class="pl-s1">argv</span>[])</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L11" class="blob-num js-line-number js-blob-rnum" data-line-number="11"></td>
+          <td id="file-tcpserver-c-LC11" class="blob-code blob-code-inner js-file-line">{</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L12" class="blob-num js-line-number js-blob-rnum" data-line-number="12"></td>
+          <td id="file-tcpserver-c-LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">int</span> <span class="pl-s1">server_fd</span>, <span class="pl-s1">new_socket</span>; <span class="pl-smi">long</span> <span class="pl-s1">valread</span>;</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L13" class="blob-num js-line-number js-blob-rnum" data-line-number="13"></td>
+          <td id="file-tcpserver-c-LC13" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">struct</span> <span class="pl-smi">sockaddr_in</span> <span class="pl-s1">address</span>;</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L14" class="blob-num js-line-number js-blob-rnum" data-line-number="14"></td>
+          <td id="file-tcpserver-c-LC14" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">int</span> <span class="pl-s1">addrlen</span> <span class="pl-c1">=</span> <span class="pl-k">sizeof</span>(<span class="pl-s1">address</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L15" class="blob-num js-line-number js-blob-rnum" data-line-number="15"></td>
+          <td id="file-tcpserver-c-LC15" class="blob-code blob-code-inner js-file-line">    </td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L16" class="blob-num js-line-number js-blob-rnum" data-line-number="16"></td>
+          <td id="file-tcpserver-c-LC16" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">char</span> <span class="pl-c1">*</span><span class="pl-s1">hello</span> <span class="pl-c1">=</span> <span class="pl-s">"Hello from server"</span>;</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L17" class="blob-num js-line-number js-blob-rnum" data-line-number="17"></td>
+          <td id="file-tcpserver-c-LC17" class="blob-code blob-code-inner js-file-line">    </td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L18" class="blob-num js-line-number js-blob-rnum" data-line-number="18"></td>
+          <td id="file-tcpserver-c-LC18" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Creating socket file descriptor</span></td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L19" class="blob-num js-line-number js-blob-rnum" data-line-number="19"></td>
+          <td id="file-tcpserver-c-LC19" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> ((<span class="pl-s1">server_fd</span> <span class="pl-c1">=</span> <span class="pl-en">socket</span>(<span class="pl-c1">AF_INET</span>, <span class="pl-c1">SOCK_STREAM</span>, <span class="pl-c1">0</span>)) <span class="pl-c1">==</span> <span class="pl-c1">0</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L20" class="blob-num js-line-number js-blob-rnum" data-line-number="20"></td>
+          <td id="file-tcpserver-c-LC20" class="blob-code blob-code-inner js-file-line">    {</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L21" class="blob-num js-line-number js-blob-rnum" data-line-number="21"></td>
+          <td id="file-tcpserver-c-LC21" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">perror</span>(<span class="pl-s">"In socket"</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L22" class="blob-num js-line-number js-blob-rnum" data-line-number="22"></td>
+          <td id="file-tcpserver-c-LC22" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">exit</span>(<span class="pl-c1">EXIT_FAILURE</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L23" class="blob-num js-line-number js-blob-rnum" data-line-number="23"></td>
+          <td id="file-tcpserver-c-LC23" class="blob-code blob-code-inner js-file-line">    }</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L24" class="blob-num js-line-number js-blob-rnum" data-line-number="24"></td>
+          <td id="file-tcpserver-c-LC24" class="blob-code blob-code-inner js-file-line">    </td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L25" class="blob-num js-line-number js-blob-rnum" data-line-number="25"></td>
+          <td id="file-tcpserver-c-LC25" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L26" class="blob-num js-line-number js-blob-rnum" data-line-number="26"></td>
+          <td id="file-tcpserver-c-LC26" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">address</span>.<span class="pl-c1">sin_family</span> <span class="pl-c1">=</span> <span class="pl-c1">AF_INET</span>;</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L27" class="blob-num js-line-number js-blob-rnum" data-line-number="27"></td>
+          <td id="file-tcpserver-c-LC27" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">address</span>.<span class="pl-c1">sin_addr</span>.<span class="pl-c1">s_addr</span> <span class="pl-c1">=</span> <span class="pl-c1">INADDR_ANY</span>;</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L28" class="blob-num js-line-number js-blob-rnum" data-line-number="28"></td>
+          <td id="file-tcpserver-c-LC28" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">address</span>.<span class="pl-c1">sin_port</span> <span class="pl-c1">=</span> <span class="pl-en">htons</span>( <span class="pl-c1">PORT</span> );</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L29" class="blob-num js-line-number js-blob-rnum" data-line-number="29"></td>
+          <td id="file-tcpserver-c-LC29" class="blob-code blob-code-inner js-file-line">    </td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L30" class="blob-num js-line-number js-blob-rnum" data-line-number="30"></td>
+          <td id="file-tcpserver-c-LC30" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">memset</span>(<span class="pl-s1">address</span>.<span class="pl-c1">sin_zero</span>, <span class="pl-c1">'\0'</span>, <span class="pl-k">sizeof</span> <span class="pl-s1">address</span>.<span class="pl-c1">sin_zero</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L31" class="blob-num js-line-number js-blob-rnum" data-line-number="31"></td>
+          <td id="file-tcpserver-c-LC31" class="blob-code blob-code-inner js-file-line">    </td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L32" class="blob-num js-line-number js-blob-rnum" data-line-number="32"></td>
+          <td id="file-tcpserver-c-LC32" class="blob-code blob-code-inner js-file-line">    </td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L33" class="blob-num js-line-number js-blob-rnum" data-line-number="33"></td>
+          <td id="file-tcpserver-c-LC33" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-en">bind</span>(<span class="pl-s1">server_fd</span>, (<span class="pl-k">struct</span> <span class="pl-smi">sockaddr</span> <span class="pl-c1">*</span>)<span class="pl-c1">&amp;</span><span class="pl-s1">address</span>, <span class="pl-k">sizeof</span>(<span class="pl-s1">address</span>))<span class="pl-c1">&lt;</span><span class="pl-c1">0</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L34" class="blob-num js-line-number js-blob-rnum" data-line-number="34"></td>
+          <td id="file-tcpserver-c-LC34" class="blob-code blob-code-inner js-file-line">    {</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L35" class="blob-num js-line-number js-blob-rnum" data-line-number="35"></td>
+          <td id="file-tcpserver-c-LC35" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">perror</span>(<span class="pl-s">"In bind"</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L36" class="blob-num js-line-number js-blob-rnum" data-line-number="36"></td>
+          <td id="file-tcpserver-c-LC36" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">exit</span>(<span class="pl-c1">EXIT_FAILURE</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L37" class="blob-num js-line-number js-blob-rnum" data-line-number="37"></td>
+          <td id="file-tcpserver-c-LC37" class="blob-code blob-code-inner js-file-line">    }</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L38" class="blob-num js-line-number js-blob-rnum" data-line-number="38"></td>
+          <td id="file-tcpserver-c-LC38" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-en">listen</span>(<span class="pl-s1">server_fd</span>, <span class="pl-c1">10</span>) <span class="pl-c1">&lt;</span> <span class="pl-c1">0</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L39" class="blob-num js-line-number js-blob-rnum" data-line-number="39"></td>
+          <td id="file-tcpserver-c-LC39" class="blob-code blob-code-inner js-file-line">    {</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L40" class="blob-num js-line-number js-blob-rnum" data-line-number="40"></td>
+          <td id="file-tcpserver-c-LC40" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">perror</span>(<span class="pl-s">"In listen"</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L41" class="blob-num js-line-number js-blob-rnum" data-line-number="41"></td>
+          <td id="file-tcpserver-c-LC41" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">exit</span>(<span class="pl-c1">EXIT_FAILURE</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L42" class="blob-num js-line-number js-blob-rnum" data-line-number="42"></td>
+          <td id="file-tcpserver-c-LC42" class="blob-code blob-code-inner js-file-line">    }</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L43" class="blob-num js-line-number js-blob-rnum" data-line-number="43"></td>
+          <td id="file-tcpserver-c-LC43" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">while</span>(<span class="pl-c1">1</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L44" class="blob-num js-line-number js-blob-rnum" data-line-number="44"></td>
+          <td id="file-tcpserver-c-LC44" class="blob-code blob-code-inner js-file-line">    {</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L45" class="blob-num js-line-number js-blob-rnum" data-line-number="45"></td>
+          <td id="file-tcpserver-c-LC45" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">printf</span>(<span class="pl-s">"\n+++++++ Waiting for new connection ++++++++\n\n"</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L46" class="blob-num js-line-number js-blob-rnum" data-line-number="46"></td>
+          <td id="file-tcpserver-c-LC46" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> ((<span class="pl-s1">new_socket</span> <span class="pl-c1">=</span> <span class="pl-en">accept</span>(<span class="pl-s1">server_fd</span>, (<span class="pl-k">struct</span> <span class="pl-smi">sockaddr</span> <span class="pl-c1">*</span>)<span class="pl-c1">&amp;</span><span class="pl-s1">address</span>, (<span class="pl-smi">socklen_t</span><span class="pl-c1">*</span>)<span class="pl-c1">&amp;</span><span class="pl-s1">addrlen</span>))<span class="pl-c1">&lt;</span><span class="pl-c1">0</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L47" class="blob-num js-line-number js-blob-rnum" data-line-number="47"></td>
+          <td id="file-tcpserver-c-LC47" class="blob-code blob-code-inner js-file-line">        {</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L48" class="blob-num js-line-number js-blob-rnum" data-line-number="48"></td>
+          <td id="file-tcpserver-c-LC48" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">perror</span>(<span class="pl-s">"In accept"</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L49" class="blob-num js-line-number js-blob-rnum" data-line-number="49"></td>
+          <td id="file-tcpserver-c-LC49" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">exit</span>(<span class="pl-c1">EXIT_FAILURE</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L50" class="blob-num js-line-number js-blob-rnum" data-line-number="50"></td>
+          <td id="file-tcpserver-c-LC50" class="blob-code blob-code-inner js-file-line">        }</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L51" class="blob-num js-line-number js-blob-rnum" data-line-number="51"></td>
+          <td id="file-tcpserver-c-LC51" class="blob-code blob-code-inner js-file-line">        </td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L52" class="blob-num js-line-number js-blob-rnum" data-line-number="52"></td>
+          <td id="file-tcpserver-c-LC52" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">char</span> <span class="pl-s1">buffer</span>[<span class="pl-c1">30000</span>] <span class="pl-c1">=</span> {<span class="pl-c1">0</span>};</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L53" class="blob-num js-line-number js-blob-rnum" data-line-number="53"></td>
+          <td id="file-tcpserver-c-LC53" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">valread</span> <span class="pl-c1">=</span> <span class="pl-en">read</span>( <span class="pl-s1">new_socket</span> , <span class="pl-s1">buffer</span>, <span class="pl-c1">30000</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L54" class="blob-num js-line-number js-blob-rnum" data-line-number="54"></td>
+          <td id="file-tcpserver-c-LC54" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">printf</span>(<span class="pl-s">"%s\n"</span>,<span class="pl-s1">buffer</span> );</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L55" class="blob-num js-line-number js-blob-rnum" data-line-number="55"></td>
+          <td id="file-tcpserver-c-LC55" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">write</span>(<span class="pl-s1">new_socket</span> , <span class="pl-s1">hello</span> , <span class="pl-en">strlen</span>(<span class="pl-s1">hello</span>));</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L56" class="blob-num js-line-number js-blob-rnum" data-line-number="56"></td>
+          <td id="file-tcpserver-c-LC56" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">printf</span>(<span class="pl-s">"------------------Hello message sent-------------------\n"</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L57" class="blob-num js-line-number js-blob-rnum" data-line-number="57"></td>
+          <td id="file-tcpserver-c-LC57" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">close</span>(<span class="pl-s1">new_socket</span>);</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L58" class="blob-num js-line-number js-blob-rnum" data-line-number="58"></td>
+          <td id="file-tcpserver-c-LC58" class="blob-code blob-code-inner js-file-line">    }</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L59" class="blob-num js-line-number js-blob-rnum" data-line-number="59"></td>
+          <td id="file-tcpserver-c-LC59" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-c1">0</span>;</td>
+        </tr>
+        <tr>
+          <td id="file-tcpserver-c-L60" class="blob-num js-line-number js-blob-rnum" data-line-number="60"></td>
+          <td id="file-tcpserver-c-LC60" class="blob-code blob-code-inner js-file-line">}</td>
+        </tr>
+  </tbody></table>
+</div>
+
+
+    </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/SkrewEverything/2c535e83a3a7b8e5b7aa490009a87fbb/raw/605c820ddeab025cfe31d7010348ddebed1a6fb4/TCPServer.c" style="float:right" class="Link--inTextBlock">view raw</a>
+        <a href="https://gist.github.com/SkrewEverything/2c535e83a3a7b8e5b7aa490009a87fbb#file-tcpserver-c" class="Link--inTextBlock">
+          TCPServer.c
+        </a>
+        hosted with ❤ by <a class="Link--inTextBlock" href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script><script defer="defer" src="vcd15cbe7772f49c399c6a5babf22c1241717689176015.es" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;9bc3fdf40eebc283&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfEdge&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;version&quot;:&quot;2025.9.1&quot;,&quot;token&quot;:&quot;0b5f665943484354a59c39c6833f7078&quot;}" crossorigin="anonymous"></script>
+</body></html>
