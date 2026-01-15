@@ -32,6 +32,10 @@ Aqui se puede ir anotando cosas que consideremos importantes sobre distintos tem
 
 ### Parser
 
+- [HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110)
+- [HTTP 1.1](https://datatracker.ietf.org/doc/html/rfc9112)
+- [Status-code Index](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
+
 ### Builder
 
 ## Resources
@@ -39,6 +43,7 @@ Aqui se puede ir anotando cosas que consideremos importantes sobre distintos tem
 Articulos utiles:
 
 - [General - building a non-blocking web server](https://m4nnb3ll.medium.com/webserv-building-a-non-blocking-web-server-in-c-98-a-42-project-04c7365e4ec7)
+    - [Resumen](/docs/general_notes.md)
 
 - [Core - build a webserver](https://medium.com/from-the-scratch/http-server-what-do-you-need-to-know-to-build-a-simple-http-server-from-scratch-d1ef8945e4fa)
 

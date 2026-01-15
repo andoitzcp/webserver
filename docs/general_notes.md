@@ -59,9 +59,11 @@ start-line     =    request-line / status-line
 
 The request line in an HTTP request message contains the method, URI, and HTTP version.
 
-```http
+```
 request-line =  method SP request-target SP HTTP-version
+```
 
+```http
 example:        GET /path/to/resource HTTP/1.1
 ``` 
 
@@ -71,9 +73,11 @@ example:        GET /path/to/resource HTTP/1.1
 
 #### Response Line / Status Line:
 
-```http
+```
 status-line =   HTTP-version SP status-code SP [reason phrase]
+```
 
+```http
 example:        HTTP/1.1 200 OK        
 ``` 
 
