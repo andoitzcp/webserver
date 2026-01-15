@@ -44,7 +44,7 @@ but select is more portable (can be used accross different platforms)
 HTTP messages consist of a request or response line, headers, an empty line(CRLF or \r\n), 
 and an optional message body.
 
-```http
+```
 HTTP-message   =    start-line CRLF
                     *( field-line CRLF )
                     CRLF
@@ -54,8 +54,6 @@ start-line     =    request-line / status-line
 ```
 
 #### Resquest Line:
-```
-```
 
 The request line in an HTTP request message contains the method, URI, and HTTP version.
 
