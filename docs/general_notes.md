@@ -38,9 +38,6 @@ but select is more portable (can be used accross different platforms)
 
 ### Parsing HTTP
 
-- [HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110)
-- [HTTP 1.1](https://datatracker.ietf.org/doc/html/rfc9112)
-
 HTTP messages consist of a request or response line, headers, an empty line(CRLF or \r\n), 
 and an optional message body.
 
@@ -52,6 +49,9 @@ HTTP-message   =    start-line CRLF
 
 start-line     =    request-line / status-line
 ```
+
+- [HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110)
+- [HTTP 1.1](https://datatracker.ietf.org/doc/html/rfc9112)
 
 #### Resquest Line:
 
@@ -83,7 +83,8 @@ example:        HTTP/1.1 200 OK
 - Status code   = 200       [Status-code Index](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
 - Reason phrase = OK
 
-#### [Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers)
+#### Headers
+
 Both requests and responses can include headers, 
 providing additional information about the message such as content type, content length, and more.
 
@@ -92,6 +93,8 @@ Host: example.com
 Content-Type: text/html
 Content-Length: 256
 ```
+
+- [Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers)
 
 #### Message Body:
 The message body, though optional, may contain data relevant to the request or response. 
