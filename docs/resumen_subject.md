@@ -1,5 +1,5 @@
 
-# Resumen Subject - [subject completo](docs/en.subject.pdf)
+# Resumen Subject - [subject completo](en.subject.pdf)
 
 ## Objetivo
 
