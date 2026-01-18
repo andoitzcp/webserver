@@ -21,6 +21,12 @@ Aqui se puede ir anotando cosas que consideremos importantes sobre distintos tem
 
 ## Resources
 
+### Libreria de test doctest
+
+Libreria de test util que no necesita linkado y que se incluye mediante un solo header.
+
+- [Articulo explicativo](https://blog.jetbrains.com/rscpp/2019/07/10/better-ways-testing-with-doctest/)
+
 ### Articulos utiles:
 
 - [General - building a non-blocking web server](https://m4nnb3ll.medium.com/webserv-building-a-non-blocking-web-server-in-c-98-a-42-project-04c7365e4ec7)
