@@ -21,13 +21,17 @@ Aqui se puede ir anotando cosas que consideremos importantes sobre distintos tem
 
 ## Resources
 
-Articulos utiles:
+### Articulos utiles:
 
 - [General - building a non-blocking web server](https://m4nnb3ll.medium.com/webserv-building-a-non-blocking-web-server-in-c-98-a-42-project-04c7365e4ec7)
     - [Resumen](docs/general_notes.md)
 
 - [Core - build a webserver](https://medium.com/from-the-scratch/http-server-what-do-you-need-to-know-to-build-a-simple-http-server-from-scratch-d1ef8945e4fa)
 
-Proyectos hechos:
+### Proyectos hechos:
 
 - [Buen readme introductivo](https://github.com/Kaydooo/Webserv_42)
+
+### Ejemplos de codigo:
+
+- [Ejemplo basico de creacion de socket con poll()](resources/poll_serve.c)
