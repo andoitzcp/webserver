@@ -9,6 +9,7 @@
         Implementar un bucle principal gobernado por una única llamada a poll() (o equivalente como select o epoll) para supervisar eventos de lectura y escritura en todos los descriptores de archivo simultáneamente.
 
 . 	**Gestión de Solicitudes (Request Parser):**
+
         Implementar una clase HttpRequest que utilice un método como feed() para procesar datos de forma parcial a medida que llegan del socket.
         Validar los métodos aceptados (mínimo GET, POST y DELETE) y gestionar el almacenamiento de archivos subidos por los clientes.
 
