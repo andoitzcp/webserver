@@ -42,8 +42,7 @@ descriptores de archivo con close() para evitar fugas de recursos.
 
 # Funcionamiento del Serve-core
 
-El núcleo del servidor se encarga de la gestión del ciclo de vida de las
-conexiones mediante el uso de sockets. Sus tareas principales incluyen:
+El núcleo del servidor se encarga de la gestión del ciclo de vida de las conexiones mediante el uso de sockets. Sus tareas principales incluyen:
 
 Creación y Gestión de Sockets: Utiliza llamadas al sistema como socket() para
 crear puntos finales de comunicación y bind() para asignarles una dirección y
